@@ -12,7 +12,7 @@ import {isMobile} from 'react-device-detect';
 const data = [
   {
     "id": "Melatonin production (pg/ml)",
-    "color": "hsl(272, 70%, 50%)",
+    "color": "rgba(144, 144, 144, 0.9)",
     "data": [
       {
         "x": "8:00am",

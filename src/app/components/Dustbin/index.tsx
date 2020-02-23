@@ -1,26 +1,24 @@
 import * as React from 'react';
 import { useDrop } from 'react-dnd'
 import ItemTypes from '../../models/ItemTypes'
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-// const DustbinStyled = styled.div`
-  
-// `;
+const DustbinStyled = styled.div`
+  height: 12rem;
+  width: 12rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: normal;
+  float: left;
+  background: ${({isActive, canDrop}) => isActive ? 'blue' : canDrop ? 'green' : 'red'};
+`;
 
-const style: React.CSSProperties = {
-  height: '12rem',
-  width: '12rem',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  color: 'white',
-  padding: '1rem',
-  textAlign: 'center',
-  fontSize: '1rem',
-  lineHeight: 'normal',
-  float: 'left',
-}
 
-const Dustbin: React.FC = () => {
+const Dustbin = () => {
   const [{ canDrop, isOver, result }, drop] = useDrop({
     accept: ItemTypes.CAFFEINE,
     drop: () => ({ name: 'Dustbin' }),
@@ -33,17 +31,11 @@ const Dustbin: React.FC = () => {
 
   console.log(result);
   const isActive = canDrop && isOver;
-  let backgroundColor = '#222'
-  if (isActive) {
-    backgroundColor = 'darkgreen'
-  } else if (canDrop) {
-    backgroundColor = 'darkkhaki'
-  }
 
   return (
-    <div ref={drop} style={{ ...style, backgroundColor }}>
+    <DustbinStyled ref={drop} isActive={isActive} canDrop={canDrop}>
       {isActive ? 'Release to drop' : 'Drag a box here'}
-    </div>
+    </DustbinStyled>
   )
 }
 
