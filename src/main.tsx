@@ -8,8 +8,8 @@ import { App } from 'app';
 
 // default fixtures for TodoStore
 const defaultTodos = [
-  new TodoModel('Use Mobx'),
-  new TodoModel('Use React', true)
+	new TodoModel('Use Mobx'),
+	new TodoModel('Use React', true)
 ];
 
 // prepare MobX stores
@@ -18,8 +18,8 @@ const rootStore = createStores(history, defaultTodos);
 
 // render react DOM
 ReactDOM.render(
-  <Provider {...rootStore}>
-    <App history={history} />
-  </Provider>,
-  document.getElementById('root')
+	<Provider {...rootStore}>
+		<App history={history} />
+	</Provider>,
+	document.getElementById('root')
 );
