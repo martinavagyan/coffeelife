@@ -1,13 +1,27 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import MyResponsiveLine from '../../components/TimeLine';
-import ItemsContainer from '../../components/ItemsView';
+import TimeLine from '../../components/TimeLine';
+// import ItemsContainer from '../../components/ItemsView';
+import { DndProvider } from 'react-dnd'
+import Backend from 'react-dnd-html5-backend'
+import TouchBackend from 'react-dnd-touch-backend'
+import DragDropSandbox from '../../components/DragDropSandbox';
+import {isMobile} from 'react-device-detect';
+
 
 const data = [
   {
     "id": "Melatonin production (pg/ml)",
     "color": "hsl(272, 70%, 50%)",
     "data": [
+      {
+        "x": "8:00am",
+        "y": 8.25
+      },
+      {
+        "x": "10:00am",
+        "y": 8.1
+      },
       {
         "x": "12:00am",
         "y": 8
@@ -48,25 +62,19 @@ const data = [
         "x": "6:00am",
         "y": 20
       },
-      {
-        "x": "8:00am",
-        "y": 8.25
-      },
-      {
-        "x": "10:00am",
-        "y": 8.1
-      },
     ]
   },
 ]
 
 const Home = () => (
-  <HomeStyled>
-    <ItemsContainer />
-    <ChartWrapper>
-      <MyResponsiveLine data={data}/>
-    </ChartWrapper>
-  </HomeStyled>
+  <DndProvider backend={isMobile ? TouchBackend : Backend}>
+    <HomeStyled>
+      <DragDropSandbox />
+      <ChartWrapper>
+        <TimeLine data={data}/>
+      </ChartWrapper>
+    </HomeStyled>
+	</DndProvider>
 );
 
 const ChartWrapper = styled.div`

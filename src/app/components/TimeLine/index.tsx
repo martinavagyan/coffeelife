@@ -1,20 +1,7 @@
 import { ResponsiveLine } from '@nivo/line';
 import * as React from 'react';
-import styled from 'styled-components';
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
 
-const Wrapper = styled.div`
-  height: 100%;
-  width: 100%;
-`
 const TimeLineChart = ({ data /* see data tab */ }) => (
-  <Wrapper
-    onDragOver= {e => console.log('drop. ', e)}
-  >
   <ResponsiveLine
       onClick={e => console.log('click. ', e)}
       data={data}
@@ -79,7 +66,6 @@ const TimeLineChart = ({ data /* see data tab */ }) => (
           }
       ]}
   />
-  </Wrapper>
 )
 
 export default TimeLineChart;
