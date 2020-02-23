@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { useDrop } from 'react-dnd'
 import ItemTypes from '../../models/ItemTypes'
+// import styled from 'styled-components';
+
+// const DustbinStyled = styled.div`
+  
+// `;
 
 const style: React.CSSProperties = {
   height: '12rem',
@@ -16,15 +21,17 @@ const style: React.CSSProperties = {
 }
 
 const Dustbin: React.FC = () => {
-  const [{ canDrop, isOver }, drop] = useDrop({
+  const [{ canDrop, isOver, result }, drop] = useDrop({
     accept: ItemTypes.CAFFEINE,
     drop: () => ({ name: 'Dustbin' }),
     collect: monitor => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
+      result: monitor.getDropResult(),
     }),
   })
 
+  console.log(result);
   const isActive = canDrop && isOver;
   let backgroundColor = '#222'
   if (isActive) {

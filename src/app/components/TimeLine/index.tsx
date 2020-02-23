@@ -41,17 +41,16 @@ const TimeLineChart = ({ data /* see data tab */ }) => (
       useMesh={true}
       legends={[
           {
-              anchor: 'top',
+              anchor: 'top-right',
               direction: 'row',
               justify: false,
-              translateX: 100,
               translateY: -33,
               itemsSpacing: 0,
               itemDirection: 'left-to-right',
-              itemWidth: 82,
+              itemWidth: 200,
               itemHeight: 20,
               itemOpacity: 0.75,
-              symbolSize: 15,
+              symbolSize: 20,
               symbolShape: 'circle',
               symbolBorderColor: 'rgba(0, 0, 0, .5)',
               effects: [
