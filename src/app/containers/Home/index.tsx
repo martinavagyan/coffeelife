@@ -80,11 +80,11 @@ const Home = () => (
 const ChartWrapper = styled.div`
   width: 100vw;
   height: 50vh;
+  max-height: 500px;
   margin: 0 auto;
 `;
 
 const HomeStyled = styled.div`
-
 `;
 
 export default Home;
