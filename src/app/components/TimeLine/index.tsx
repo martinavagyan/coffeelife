@@ -1,5 +1,6 @@
 import { ResponsiveLine } from '@nivo/line';
 import * as React from 'react';
+import ToolTip from '../Tooltip';
 
 const TimeLineChart = ({ data /* see data tab */ }) => (
   <ResponsiveLine
@@ -29,7 +30,6 @@ const TimeLineChart = ({ data /* see data tab */ }) => (
           legendOffset: -40,
           legendPosition: 'middle'
       }}
-      colors={{ scheme: 'nivo' }}
       lineWidth={4}
       enablePoints={false}
       pointSize={11}
@@ -64,6 +64,24 @@ const TimeLineChart = ({ data /* see data tab */ }) => (
               ]
           }
       ]}
+      colors={({id, color}) => color}
+      crosshairType="x"
+      enableSlices="x"
+      sliceTooltip={props => {
+        return (
+            <ToolTip
+                withContainer
+                name={props.slice.points[0].data.x}
+                fields={[...props.slice.points].reverse().map(point => {
+                    return {
+                        color: point.serieColor,
+                        label: String(point.serieId),
+                        value: point.data.y,
+                    };
+                })}
+            />
+        );
+      }}
   />
 )
 
