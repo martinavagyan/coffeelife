@@ -17,7 +17,6 @@ const DustbinStyled = styled.div`
   background: ${({isActive, canDrop}) => isActive ? 'blue' : canDrop ? 'green' : 'red'};
 `;
 
-
 const Dustbin = () => {
   const [{ canDrop, isOver, result }, drop] = useDrop({
     accept: ItemTypes.CAFFEINE,

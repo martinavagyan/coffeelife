@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TodoTextInput } from 'app/components/TodoTextInput';
+import { TodoTextInput } from 'app/components/archive/TodoTextInput';
 import { TodoModel } from 'app/models/TodoModel';
 
 export interface HeaderProps {

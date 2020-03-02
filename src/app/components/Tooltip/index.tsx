@@ -1,10 +1,8 @@
 import * as React from 'react';
 import {Wrapper, Title, Field, Color, Text} from './styled';
 
-const wrap = shouldWrap => component => (shouldWrap ? <Wrapper>{component}</Wrapper> : component);
-
-const ToolTip = ({name, fields, withContainer}) =>
-  wrap(withContainer)(
+const ToolTip = ({name, fields}) =>
+  <Wrapper>
     <React.Fragment>
       <Title>{name}</Title>
       {fields.map(field => (
@@ -16,6 +14,6 @@ const ToolTip = ({name, fields, withContainer}) =>
         </Field>
       ))}
     </React.Fragment>
-  );
+  </Wrapper>;
 
 export default ToolTip;
