@@ -9,69 +9,12 @@ import DragDropSandbox from '../../components/DragDropSandbox';
 import {isMobile} from 'react-device-detect';
 
 
-const data = [
-  {
-    "id": "Melatonin production (pg/ml)",
-    "color": "rgba(125, 137, 184, 0.7)",
-    "data": [
-      {
-        "x": "8:00am",
-        "y": 8.25
-      },
-      {
-        "x": "10:00am",
-        "y": 8.1
-      },
-      {
-        "x": "12:00am",
-        "y": 8
-      },
-      {
-        "x": "14:00pm",
-        "y": 8.15
-      },
-      {
-        "x": "16:00pm",
-        "y": 8.25
-      },
-      {
-        "x": "18:00pm",
-        "y": 9
-      },
-      {
-        "x": "20:00pm",
-        "y": 12.25
-      },
-      {
-        "x": "22:00pm",
-        "y": 22
-      },
-      {
-        "x": "24:00pm",
-        "y": 55
-      },
-      {
-        "x": "2:00am",
-        "y": 70
-      },
-      {
-        "x": "4:00am",
-        "y": 50
-      },
-      {
-        "x": "6:00am",
-        "y": 20
-      },
-    ]
-  },
-]
-
 const Home = () => (
   <DndProvider backend={isMobile ? TouchBackend : Backend}>
     <HomeStyled>
       <DragDropSandbox />
       <ChartWrapper>
-        <TimeLine data={data}/>
+        <TimeLine data={[]}/>
       </ChartWrapper>
     </HomeStyled>
 	</DndProvider>

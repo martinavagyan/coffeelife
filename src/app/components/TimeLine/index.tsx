@@ -10,10 +10,7 @@ import {
 const DustbinStyled = styled.div`
     width: 100%;
     height: 100%;
-    margin-right: 1.5rem;
-    margin-bottom: 1.5rem;
     color: white;
-    padding: 1rem;
     text-align: center;
     font-size: 1rem;
     line-height: normal;
@@ -34,25 +31,40 @@ const TimeLineChart = ({ data /* see data tab */ }) => {
 
     data = [
         {
-          name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+            name: '8:00 AM', mel: 8.25, cafe: 20,
         },
         {
-          name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+            name: '10:00 AM', mel: 8.1, cafe: 30,
         },
         {
-          name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+            name: '12:00 PM', mel: 8, cafe: 40,
         },
         {
-          name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+            name: '14:00 PM', mel: 8.15, cafe: 40,
         },
         {
-          name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+            name: '16:00 PM', mel: 8.25, cafe: 30,
         },
         {
-          name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+            name: '18:00 PM', mel: 9, cafe: 50,
         },
         {
-          name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+            name: '20:00 PM', mel: 12.25, cafe: 30,
+        },
+        {
+            name: '22:00 PM', mel: 22, cafe: 25,
+        },
+        {
+            name: '00:00 AM', mel: 55, cafe: 15,
+        },
+        {
+            name: '02:00 AM', mel: 70, cafe: 10,
+        },
+        {
+            name: '04:00 AM', mel: 50, cafe: 5,
+        },
+        {
+            name: '06:00 AM', mel: 20, cafe: 2,
         },
       ];
 
@@ -65,17 +77,14 @@ const TimeLineChart = ({ data /* see data tab */ }) => {
                     width={500}
                     height={300}
                     data={data}
-                    margin={{
-                    top: 5, right: 30, left: 20, bottom: 5,
-                    }}
                 >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="mel" stroke="#8884d8" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="cafe" stroke="#82ca9d" />
                 </LineChart>
             </ResponsiveContainer>
         </DustbinStyled>
