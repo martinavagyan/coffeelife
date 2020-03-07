@@ -31,40 +31,73 @@ const TimeLineChart = ({ data /* see data tab */ }) => {
 
     data = [
         {
-            name: '8:00 AM', mel: 8.25, cafe: 20,
+            name: '8', mel: 8.25, cafe: 20,
         },
         {
-            name: '10:00 AM', mel: 8.1, cafe: 30,
+            name: '9', mel: 8.2, cafe: 20,
         },
         {
-            name: '12:00 PM', mel: 8, cafe: 40,
+            name: '10', mel: 8.1, cafe: 30,
         },
         {
-            name: '14:00 PM', mel: 8.15, cafe: 40,
+            name: '11', mel: 8.05, cafe: 30,
         },
         {
-            name: '16:00 PM', mel: 8.25, cafe: 30,
+            name: '12', mel: 8, cafe: 40,
         },
         {
-            name: '18:00 PM', mel: 9, cafe: 50,
+            name: '13', mel: 8.1, cafe: 40,
         },
         {
-            name: '20:00 PM', mel: 12.25, cafe: 30,
+            name: '14', mel: 8.15, cafe: 40,
         },
         {
-            name: '22:00 PM', mel: 22, cafe: 25,
+            name: '15', mel: 8.2, cafe: 30,
         },
         {
-            name: '00:00 AM', mel: 55, cafe: 15,
+            name: '16', mel: 8.25, cafe: 30,
         },
         {
-            name: '02:00 AM', mel: 70, cafe: 10,
+            name: '17', mel: 8.4, cafe: 30,
         },
         {
-            name: '04:00 AM', mel: 50, cafe: 5,
+            name: '18', mel: 9, cafe: 50,
         },
         {
-            name: '06:00 AM', mel: 20, cafe: 2,
+            name: '19', mel: 11.45, cafe: 30,
+        },
+        {
+            name: '20', mel: 12.25, cafe: 30,
+        },
+        {
+            name: '21', mel: 16, cafe: 30,
+        },
+        {
+            name: '22', mel: 22, cafe: 25,
+        },
+        {
+            name: '24', mel: 40, cafe: 15,
+        },
+        {
+            name: '1', mel: 55, cafe: 15,
+        },
+        {
+            name: '2', mel: 65, cafe: 10,
+        },
+        {
+            name: '3', mel: 71, cafe: 10,
+        },
+        {
+            name: '4', mel: 64, cafe: 5,
+        },
+        {
+            name: '5', mel: 50, cafe: 5,
+        },
+        {
+            name: '6', mel: 20, cafe: 2,
+        },
+        {
+            name: '7', mel: 9, cafe: 2,
         },
       ];
 
