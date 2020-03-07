@@ -1,9 +1,11 @@
-import { ResponsiveLine } from '@nivo/line';
 import * as React from 'react';
-import ToolTip from '../Tooltip';
 import { useDrop } from 'react-dnd'
 import ItemTypes from '../../models/ItemTypes';
 import styled from 'styled-components';
+
+import {
+    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
+  } from 'recharts';
 
 const DustbinStyled = styled.div`
     width: 100%;
@@ -30,94 +32,55 @@ const TimeLineChart = ({ data /* see data tab */ }) => {
         }),
     })
 
+    data = [
+        {
+          name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+        },
+        {
+          name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+        },
+        {
+          name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+        },
+        {
+          name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+        },
+        {
+          name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+        },
+        {
+          name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+        },
+        {
+          name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+        },
+      ];
+
     const isActive = canDrop && isOver;
 
     return (
         <DustbinStyled ref={drop} isActive={isActive} canDrop={canDrop}>
-            <ResponsiveLine
-                    onClick={e => console.log('click. ', e)}
+            <ResponsiveContainer>
+                <LineChart
+                    width={500}
+                    height={300}
                     data={data}
-                    margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-                    xScale={{ type: 'point' }}
-                    yScale={{ type: 'linear', min: 0, max: 'auto', stacked: true, reverse: false }}
-                    curve="natural"
-                    axisTop={null}
-                    axisRight={null}
-                    isInteractive={true}
-                    debugSlices={isActive}
-                    onMouseEnter={(_data, event) => {
-                        console.log(_data);
+                    margin={{
+                    top: 5, right: 30, left: 20, bottom: 5,
                     }}
-                    axisBottom={{
-                        orient: 'bottom',
-                        tickSize: 10,
-                        tickPadding: 5,
-                        tickRotation: 0,
-                        legend: 'Time',
-                        legendOffset: 40,
-                        legendPosition: 'middle'
-                    }}
-                    axisLeft={{
-                        orient: 'left',
-                        tickSize: 5,
-                        tickPadding: 5,
-                        tickRotation: 0,
-                        legend: 'Concentration',
-                        legendOffset: -40,
-                        legendPosition: 'middle'
-                    }}
-                    lineWidth={4}
-                    enablePoints={false}
-                    pointSize={11}
-                    pointColor={{ theme: 'background' }}
-                    pointBorderWidth={2}
-                    pointBorderColor={{ from: 'serieColor' }}
-                    pointLabel="y"
-                    pointLabelYOffset={-12}
-                    useMesh={true}
-                    legends={[
-                        {
-                            anchor: 'top-right',
-                            direction: 'row',
-                            justify: false,
-                            translateY: -33,
-                            itemsSpacing: 0,
-                            itemDirection: 'left-to-right',
-                            itemWidth: 200,
-                            itemHeight: 20,
-                            itemOpacity: 0.75,
-                            symbolSize: 20,
-                            symbolShape: 'circle',
-                            symbolBorderColor: 'rgba(0, 0, 0, .5)',
-                            effects: [
-                                {
-                                    on: 'hover',
-                                    style: {
-                                        itemBackground: 'rgba(0, 0, 0, .03)',
-                                        itemOpacity: 1
-                                    }
-                                }
-                            ]
-                        }
-                    ]}
-                    colors={({id, color}) => color}
-                    crosshairType="x"
-                    enableSlices="x"
-                    sliceTooltip={props => {
-                    return (
-                        <ToolTip
-                            name={props.slice.points[0].data.x}
-                            fields={[...props.slice.points].reverse().map(point => {
-                                return {
-                                    color: point.serieColor,
-                                    label: String(point.serieId),
-                                    value: point.data.y,
-                                };
-                            })}
-                        />);
-                    }}
-            />
-    </DustbinStyled>)
+                >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                </LineChart>
+            </ResponsiveContainer>
+        </DustbinStyled>
+
+    )
 }
 
 export default TimeLineChart;
