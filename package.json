@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --hot --progress --colors --port 3000 --open",
     "build": "webpack -p --progress --colors",
-    "publish": "npm run build && rm -r ./docs/* && cp -r build/* docs/",
+    "publish": "npm run build && rm -r ./docs/* && cp -r build/* docs/ && git add -A :/ && git commit -m 'publish dist' && git push",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\""
   },
   "license": "MIT",
