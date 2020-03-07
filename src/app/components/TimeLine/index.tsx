@@ -43,6 +43,7 @@ const TimeLineChart = ({ data /* see data tab */ }) => {
                     curve="natural"
                     axisTop={null}
                     axisRight={null}
+                    isInteractive={true}
                     debugSlices={isActive}
                     onMouseEnter={(_data, event) => {
                         console.log(_data);
@@ -118,7 +119,5 @@ const TimeLineChart = ({ data /* see data tab */ }) => {
             />
     </DustbinStyled>)
 }
-    
-
 
 export default TimeLineChart;
