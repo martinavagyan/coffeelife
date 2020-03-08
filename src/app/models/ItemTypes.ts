@@ -1,3 +1,3 @@
 export default {
-  CAFFEINE: 'caffeine',
-}
+	CAFFEINE: 'caffeine'
+};

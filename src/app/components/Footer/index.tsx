@@ -53,7 +53,10 @@ export class Footer extends React.Component<FooterProps, FooterState> {
 		const { completedCount, onClearCompleted } = this.props;
 		if (completedCount > 0) {
 			return (
-				<button className={style.clearCompleted} onClick={onClearCompleted} />
+				<button
+					className={style.clearCompleted}
+					onClick={onClearCompleted}
+				/>
 			);
 		}
 	}
@@ -64,7 +67,10 @@ export class Footer extends React.Component<FooterProps, FooterState> {
 				{this.renderTodoCount()}
 				<ul className={style.filters}>
 					{TODO_FILTER_TYPES.map((filter) => (
-						<li key={filter} children={this.renderFilterLink(filter)} />
+						<li
+							key={filter}
+							children={this.renderFilterLink(filter)}
+						/>
 					))}
 				</ul>
 				{this.renderClearButton()}

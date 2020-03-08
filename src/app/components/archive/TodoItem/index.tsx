@@ -72,7 +72,9 @@ export class TodoItem extends React.Component<TodoProps, TodoState> {
 					onChange={this.handleToggleCheckbox}
 				/>
 
-				<label onDoubleClick={this.handleDoubleClick}>{todo.text}</label>
+				<label onDoubleClick={this.handleDoubleClick}>
+					{todo.text}
+				</label>
 
 				<button
 					className={style.destroy}
