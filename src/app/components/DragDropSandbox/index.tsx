@@ -30,13 +30,13 @@ const Choco: ProductItem = {
 };
 
 export default function DragDropSandbox() {
-	const [selected, setSelected] = useState(0);
+	const [selected, setSelected] = useState(Choco);
 	return (
 		<div>
 			<div style={{ overflow: 'hidden', clear: 'both' }}>
-				<Item value={Choco} isSelected={selected === 1} onClick={() => setSelected(1)}/>
-				<Item value={Tea} isSelected={selected === 2} onClick={() => setSelected(2)}/>
-				<Item value={Coffee} isSelected={selected === 3} onClick={() => setSelected(3)}/>
+				<Item value={Choco} isSelected={selected == Choco} onClick={() => setSelected(Choco)}/>
+				<Item value={Tea} isSelected={selected == Tea} onClick={() => setSelected(Tea)}/>
+				<Item value={Coffee} isSelected={selected == Coffee} onClick={() => setSelected(Coffee)}/>
 			</div>
 		</div>
 	);
